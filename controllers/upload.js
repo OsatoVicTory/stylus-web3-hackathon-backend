@@ -18,7 +18,7 @@ exports.uploadContentsFile = async (req, res) => {
             );
         } else {
             upload_data = await cloudinary.uploader.upload(
-                file.path, { folder: "voting-hackathon/contents", public_id: file.name, resource_type: 'raw' }
+                file.path, { folder: "voting-hackathon/contents", public_id: file.name, resource_type: data.resource_type||'raw' }
             );
         }
         fs.unlinkSync(file.path);
